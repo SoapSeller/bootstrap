@@ -58,4 +58,36 @@ $(function () {
           .tab('show')
       })
 
+      test("should not activate element by tab id when tab is disabled", function () {
+        var tabsHTML =
+            '<ul class="tabs">'
+          + '<li class="disabled"><a href="#home">Home</a></li>'
+          + '<li class="disabled"><a href="#profile">Profile</a></li>'
+          + '</ul>'
+
+        $('<ul><li id="home"></li><li id="profile"></li></ul>').appendTo("#qunit-fixture")
+
+        $(tabsHTML).find('li:last a').tab('show')
+        equals($("#qunit-fixture").find('.active').attr('id'), undefined)
+
+        $(tabsHTML).find('li:first a').tab('show')
+        equals($("#qunit-fixture").find('.active').attr('id'), undefined)
+      })
+      
+      test("should not activate element by tab id when tab is disabled", function () {
+        var pillsHTML =
+            '<ul class="pils">'
+          + '<li class="disabled"><a href="#home">Home</a></li>'
+          + '<li class="disabled"><a href="#profile">Profile</a></li>'
+          + '</ul>'
+
+        $('<ul><li id="home"></li><li id="profile"></li></ul>').appendTo("#qunit-fixture")
+
+        $(pillsHTML).find('li:last a').tab('show')
+        equals($("#qunit-fixture").find('.active').attr('id'), undefined)
+
+        $(pillsHTML).find('li:first a').tab('show')
+        equals($("#qunit-fixture").find('.active').attr('id'), undefined)
+      })
+
 })
